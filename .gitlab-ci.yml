@@ -1,5 +1,5 @@
-#image: registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12
-image: docker:19.03.12
+image: registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12
+# image: docker:19.03.12
 
 
 variables:
@@ -23,19 +23,19 @@ variables:
   IMAGE_DIRECTORY: "src/cartservice"
 
 services:
-#    - registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12-dind
-  - docker:19.03.12-dind
+  - registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12-dind
+  # - docker:19.03.12-dind
 
 # before_script:
 #     - docker login registry.gitlab.tech.orange -u florent.lelain -p $PAT
 
 build_cartservice:
   script:
+    - docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ./${IMAGE_DIRECTORY}
+    # - docker build -t registry.gitlab.tech.orange/sre-cloud-ops/sre-cloud-ops-app/cartservice:1.0 ./src/cartservice
     - docker login registry.gitlab.tech.orange -u florent.lelain -p $PAT
-    # - docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ./${IMAGE_DIRECTORY}
-    - docker build -t registry.gitlab.tech.orange/sre-cloud-ops/sre-cloud-ops-app/cartservice:1.0 ./src/cartservice
-    # - docker push ${IMAGE_NAME}:${IMAGE_TAG}
-    - docker push registry.gitlab.tech.orange/sre-cloud-ops/sre-cloud-ops-app/cartservice:1.0
+    - docker push ${IMAGE_NAME}:${IMAGE_TAG}
+    # - docker push registry.gitlab.tech.orange/sre-cloud-ops/sre-cloud-ops-app/cartservice:1.0
   when: manual
   tags:
     - graas-dind
