@@ -28,6 +28,7 @@ services:
 
 build_cartservice:
   script:
+    - docker login registry.gitlab.tech.orange -u florent.lelain -p $PAT
     # - docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ./${IMAGE_DIRECTORY}
     - docker build -t registry.gitlab.tech.orange/sre-cloud-ops/sre-cloud-ops-app/cartservice:1.0 ./src/cartservice
     # - docker push ${IMAGE_NAME}:${IMAGE_TAG}
