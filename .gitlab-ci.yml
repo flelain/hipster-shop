@@ -26,7 +26,9 @@ variables:
 services:
   #  This below does not work. Fails on "Cannot connect to the Docker daemon at tcp://docker:2376/"
   # - registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12-dind
-  - docker:19.03.12-dind
+  # - docker:19.03.12-dind
+  - name: registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12-dind
+    alias: docker
 
 # before_script:
 #     - docker login registry.gitlab.tech.orange -u florent.lelain -p $PAT
