@@ -21,7 +21,7 @@ variables:
   IMAGE_DIRECTORY: "src/cartservice"
 
 services:
-    - docker:19.03.12-dind
+    - registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12-dind
 
 before_script:
     - docker login registry.gitlab.tech.orange -u florent.lelain -p $PAT
