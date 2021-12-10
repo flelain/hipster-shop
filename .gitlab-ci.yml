@@ -1,5 +1,5 @@
-image: registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12
-# image: docker:19.03.12
+# image: registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12
+image: docker:19.03.12
 
 
 variables:
@@ -23,8 +23,8 @@ variables:
   IMAGE_DIRECTORY: "src/cartservice"
 
 services:
-  - registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12-dind
-  # - docker:19.03.12-dind
+  # - registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12-dind
+  - docker:19.03.12-dind
 
 # before_script:
 #     - docker login registry.gitlab.tech.orange -u florent.lelain -p $PAT
