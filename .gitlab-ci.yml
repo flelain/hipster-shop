@@ -21,9 +21,10 @@ variables:
   IMAGE_NAME: "registry.gitlab.tech.orange/sre-cloud-ops/sre-cloud-ops-app/cartservice"
   IMAGE_TAG: "1.0"
   IMAGE_DIRECTORY: "src/cartservice"
-  DOCKER_HOST: "tcp://localhost:2375/"
+  # DOCKER_HOST: "tcp://localhost:2375/"
 
 services:
+  #  This below does not work. Fails on "Cannot connect to the Docker daemon at tcp://docker:2376/"
   - registry.gitlab.tech.orange/florent.lelain/images-build/docker:19.03.12-dind
   # - docker:19.03.12-dind
 
